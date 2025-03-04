@@ -37,7 +37,7 @@ public class CompanyServiceImp implements CompanyService {
 
     @Override
     public Page<CompanyDto> getAllCompanies(int page, int size) {
-        return companyRepository.findAll(PageRequest.of(page, size)).map(companyMapper::toDto);
+        return companyRepository.findAll(PageRequest.of(page, size)).map(this::requestEmployeesByCompanyId);
     }
 
     private CompanyDto requestEmployeesByCompanyId(Company company) {
