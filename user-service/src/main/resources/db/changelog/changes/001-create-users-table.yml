@@ -29,6 +29,10 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     unique: true
+              - column:
+                  name: company_id
+                  type: int
+
 
   - changeSet:
       id: 2
@@ -40,3 +44,9 @@ databaseChangeLog:
             columns:
               - column:
                   name: last_name
+        - createIndex:
+            indexName: idx_users_company_id
+            tableName: users
+            columns:
+              - column:
+                  name: company_id
