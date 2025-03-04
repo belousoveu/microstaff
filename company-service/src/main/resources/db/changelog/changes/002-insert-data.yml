@@ -1,0 +1,45 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: company-service
+      changes:
+        - insert:
+            tableName: companies
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: 'ООО "Рога и копыта"'
+              - column:
+                  name: budget
+                  value: 1_000_000
+
+        - insert:
+            tableName: companies
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: 'Monsters Inc.'
+              - column:
+                  name: budget
+                  value: 1_500_000
+
+        - insert:
+            tableName: companies
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: name
+                  value: 'ЗАО "Пираты"'
+              - column:
+                  name: budget
+                  value: 500_000
+
+
