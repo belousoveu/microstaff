@@ -34,4 +34,9 @@ public class UsersController {
         return userService.getUserByLastName(lastName);
     }
 
+    @GetMapping("/employee/{company_id}")
+    public List<UserDto> getEmployeesByCompanyId(@PathVariable(name = "company_id") int companyId) {
+        return userService.getEmployeesByCompanyId(companyId);
+    }
+
 }

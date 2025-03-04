@@ -34,4 +34,9 @@ public class UserServiceImp implements UserService {
                 userRepository.findByLastName(lastName).orElseThrow(() -> new UserNotFoundException(lastName))
         );
     }
+
+    @Override
+    public List<UserDto> getEmployeesByCompanyId(int companyId) {
+        return userRepository.findByCompanyId(companyId).stream().map(userMapper::toDto).toList();
+    }
 }

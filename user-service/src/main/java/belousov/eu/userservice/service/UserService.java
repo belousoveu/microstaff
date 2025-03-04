@@ -10,4 +10,6 @@ public interface UserService {
     UserDto getUserById(int id);
 
     UserDto getUserByLastName(String lastName);
+
+    List<UserDto> getEmployeesByCompanyId(int companyId);
 }
