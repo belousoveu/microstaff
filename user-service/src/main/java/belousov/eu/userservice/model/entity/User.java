@@ -1,13 +1,17 @@
 package belousov.eu.userservice.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "users",
         indexes = {@Index(name = "idx_users_last_name", columnList = "last_name"),
                 @Index(name = "idx_users_company_id", columnList = "company_id")})
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
