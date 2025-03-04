@@ -1,0 +1,91 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: user-service
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+                  type: int
+              - column:
+                  name: first_name
+                  value: 'Иван'
+              - column:
+                  name: last_name
+                  value: 'Иванов'
+              - column:
+                  name: phone_number
+                  value: '+7 (123) 456-78-90'
+
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: first_name
+                  value: 'Мария'
+              - column:
+                  name: last_name
+                  value: 'Петрова'
+              - column:
+                  name: phone_number
+                  value: '+7 (234) 567-89-01'
+
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 3
+              - column:
+                  name: first_name
+                  value: 'Александр'
+              - column:
+                  name: last_name
+                  value: 'Сидоров'
+              - column:
+                  name: phone_number
+                  value: '+7 (345) 678-90-12'
+
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 4
+              - column:
+                  name: first_name
+                  value: 'Елена'
+              - column:
+                  name: last_name
+                  value: 'Кузнецова'
+              - column:
+                  name: phone_number
+                  value: '+7 (456) 789-01-23'
+
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 5
+              - column:
+                  name: first_name
+                  value: 'Ольга'
+              - column:
+                  name: last_name
+                  value: 'Морозова'
+              - column:
+                  name: phone_number
+                  value: '+7 (567) 890-12-34'
+
+
+
