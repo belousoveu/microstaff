@@ -21,7 +21,7 @@ public class Company {
     @Column(name = "budget")
     private long budget;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Set<Employee> employees;
 
 }
