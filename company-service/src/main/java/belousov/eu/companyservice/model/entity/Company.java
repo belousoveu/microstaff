@@ -2,11 +2,15 @@ package belousov.eu.companyservice.model.entity;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "companies", indexes = @Index(name = "idx_company_name", columnList = "name"))
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Company {
 
     @Id
