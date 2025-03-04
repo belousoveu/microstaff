@@ -31,27 +31,6 @@ databaseChangeLog:
               - column:
                   name: name
 
-  - changeSet:
-      id: 2
-      author: company_service
-      changes:
-        - createTable:
-            tableName: employees
-            columns:
-              - column:
-                  name: id
-                  type: int
-                  autoIncrement: false
-                  constraints:
-                    nullable: false
-                    primaryKey: true
-              - column:
-                  name: company_id
-                  type: int
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_employee_company_id
-                    referencedTableName: companies
-                    referencedColumnNames: id
+
 
 

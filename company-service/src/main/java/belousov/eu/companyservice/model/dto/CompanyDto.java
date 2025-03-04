@@ -2,7 +2,7 @@ package belousov.eu.companyservice.model.dto;
 
 import lombok.Data;
 
-import java.util.Set;
+import java.util.List;
 
 @Data
 public class CompanyDto {
@@ -10,5 +10,5 @@ public class CompanyDto {
     private int id;
     private String name;
     private long budget;
-    private Set<EmployeeDto> employees;
+    private List<EmployeeDto> employees;
 }
