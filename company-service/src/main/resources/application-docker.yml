@@ -26,7 +26,12 @@ feign:
   client:
     config:
       user-service:
-        url: http://user-service:8081
         loadBalancer:
-          enabled: false
+          enabled: true
 
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
