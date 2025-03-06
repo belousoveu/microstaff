@@ -4,8 +4,8 @@ RUN apt-get update && apt-get install -y curl
 
 WORKDIR /app
 
-COPY target/user-service-1.0.0.jar app.jar
+COPY target/eureka-server-1.0.0.jar app.jar
 
-EXPOSE 8081
+EXPOSE 8761
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
