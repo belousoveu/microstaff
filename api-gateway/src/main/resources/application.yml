@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/users/**
+        - id: company-service
+          uri: lb://company-service
+          predicates:
+            - Path=/api/company/**
+      default-filters:
+        - name: CacheRequestBody
+          args:
+            cache: caffeine
+    loadbalancer:
+      cache:
+        caffeine:
+          spec: maximumSize=500,expireAfterAccess=60s
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

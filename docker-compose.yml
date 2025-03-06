@@ -1,12 +1,37 @@
 services:
+  eureka-server:
+    build:
+      context: ./eureka-server
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8761:8761"
+    networks:
+      - micro-staff-network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://localhost:8761/ || exit 1" ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+
   user-service:
     build:
       context: ./user-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
     ports:
       - "8081:8081"
+    depends_on:
+      eureka-server:
+        condition: service_healthy
     networks:
-      - microstaff-network
-
+      - micro-staff-network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://localhost:8081/swagger-ui/index.html || exit 1" ]
+      interval: 20s
+      timeout: 20s
+      retries: 5
 
   company-service:
     build:
@@ -16,12 +41,34 @@ services:
     ports:
       - "8082:8082"
     depends_on:
-      - user-service
+      user-service:
+        condition: service_healthy
     networks:
-      - microstaff-network
+      - micro-staff-network
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://localhost:8082/swagger-ui/index.html || exit 1" ]
+      interval: 20s
+      timeout: 20s
+      retries: 5
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_CLOUD_GATEWAY_DISCOVERY_LOCATOR_ENABLED: true
+    ports:
+      - "8080:8080"
+    depends_on:
+      user-service:
+        condition: service_healthy
+      company-service:
+        condition: service_healthy
+    networks:
+      - micro-staff-network
 
 networks:
-  microstaff-network:
+  micro-staff-network:
     driver: bridge
 
 

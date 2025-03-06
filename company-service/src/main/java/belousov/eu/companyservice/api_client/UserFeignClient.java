@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
-@FeignClient(name = "user-service", url = "${feign.client.config.user-service.url}", configuration = FeignConfig.class)
+@FeignClient(name = "user-service", configuration = FeignConfig.class)
 public interface UserFeignClient {
 
     @GetMapping("/api/users/employee/{companyId}")
